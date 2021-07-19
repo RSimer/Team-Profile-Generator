@@ -22,8 +22,23 @@ describe('lib test', () =>{
         expect(employee.id).toBe(testId);
     });
     it('should set email via constructor arguments', ()=>{
-        const testValue = "robbiesk5@gmail.com";
-        const employee = new Employee('Emily',54,testValue);
-        expect(employee.email).toBe(testValue);
+        const testEmail = "robbiesk5@gmail.com";
+        const employee = new Employee('Emily',54,testEmail);
+        expect(employee.email).toBe(testEmail);
+    });
+    it('should get the name from getName()', () =>{
+        const testing = 'Rob';
+        const placeIn = new Employee(testing);
+        expect(placeIn.getName().toBe(testing));
+    });
+    it('should get the id from getId()', () =>{
+        const testing = 93;
+        const placeIn = new Employee('Zehak',testing);
+        expect(placeIn.getId().toBe(testing));
+    });
+    it('should get the email from getEmail()', () =>{
+        const testing = 'robbiesk5@gmail.com';
+        const placeIn = new Employee('Zehak',87,testing);
+        expect(placeIn.getName().toBe(testing));
     });
 });
