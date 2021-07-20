@@ -1,5 +1,11 @@
 const inquirer = require("inquirer");
 const path = require("path");
+
+const Employee = require('../lib/employee');
+const Engineer = require('../lib/engineer');
+const Intern = require('../lib/intern');
+const Manager = require('../lib/manager');
+
 // download path done
 // OUTPUT_DIR = path.join (output_Dir, team.html); GOOGLE THESE
 // outputPath = path.resolve (_dirname, "output")
@@ -13,24 +19,32 @@ const path = require("path");
 // when finished, pushes to the path function
 
 const teamMemebers = [];
-const teamGenerator = () => {
-
-function askforManager(){
-
-}
 
 
 
-
-
-
-}
 const managerQuestions = [
     {
         type: "input",
         message: "what is the manager's name?",
         name: "managerName"
     },
+    {
+        type: "input",
+        message: "what is the manager's id?",
+        name: "managerId",
+    },
+    {
+        type: "input",
+        message: "what is the manager's email?",
+        name: "managerEmail"
+    },
+    {
+        type: "input",
+        message: "what is your office number",
+        name: "officeNumber"
+    },
+    
+    
 ];
 const internQuestions = [
     {
@@ -38,12 +52,43 @@ const internQuestions = [
         message: "what is the intern's name?",
         name: "internName",
     },
+    {
+        type: "input",
+        message: "what is the interns's id?",
+        name: "internId",
+    },
+    {
+        type: "input",
+        message: "what is the interns's email?",
+        name: "internEmail"
+    },
+    {
+        type: "input",
+        message: "what is the interns's school?",
+        name: "internSchool"
+    },
+
 ];
 const engineerQuestions = [
     {
         type: "input",
         message: "what is the engineer's name?",
         name: "engineerName",
+    },
+    {
+        type: "input",
+        message: "what is the engineers's id?",
+        name: "engineerId",
+    },
+    {
+        type: "input",
+        message: "what is the engineers's email?",
+        name: "engineerEmail"
+    },
+    {
+        type: "input",
+        message: "what is the engineer's github?",
+        name: "engineerGithub"
     },
 ];
 
@@ -56,16 +101,23 @@ const WhatsNextQuestions = [
     }
 ];
 
-const askForInternInfo = () =>{
 
+const teamGenerator = () => {
+
+    function askforManager(){
+        inquirer.prompt(managerQuestions)
+        .then(managerData =>{
+            let managerData = {managerName,managerId,managerEmail,officeNumber}
+            employee = new Manager(managerName,managerId,managerEmail,officeNumber)
+        })
+    }
+    function WhatsNext(){
+        inquirer.prompt(WhatsNextQuestions)
+        .then()
+    }
 }
-const askWhatNext = () => inquirer
-.prompt(managerQuestions)
-.then((WhatsNextAnswer) => {
 
-
-
-})
+teamGenerator();
 inquirer
 .prompt(managerQuestions)
 .then((answers)=>{
